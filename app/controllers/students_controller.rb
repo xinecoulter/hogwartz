@@ -19,4 +19,8 @@ class StudentsController < ApplicationController
     @student.update_attributes(name: params[:name])
     redirect_to @student
   end
+
+  def search
+    @students = Student.where(name: params[:query])
+  end
 end

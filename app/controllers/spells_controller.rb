@@ -14,4 +14,5 @@ class SpellsController < ApplicationController
       render :new
     end
   end
+
 end

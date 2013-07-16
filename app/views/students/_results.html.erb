@@ -1,0 +1,7 @@
+<% if @students.present? %>
+  <ul>
+  <% @students.each do |student| %>
+    <li><%= link_to student.name, student %></li>
+  <% end %>
+  </ul>
+<% end %>

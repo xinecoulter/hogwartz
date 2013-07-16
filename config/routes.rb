@@ -11,9 +11,11 @@ Hogwartz::Application.routes.draw do
   get   '/students/:id'       => 'students#show',   as: :student
   put   '/students/:id'       => 'students#update'
 
-  get   '/spells/new'         => 'spells#new',      as: :new_spell
-  get   '/spells/:id'         => 'spells#show',     as: :spell
   post  '/spells'             => 'spells#create'
+  get   '/spells/new'         => 'spells#new',      as: :new_spell
+  get   '/spells/:id/edit'    => 'spells#edit',     as: :edit_spell
+  get   '/spells/:id'         => 'spells#show',     as: :spell
+  put   '/spells/:id'         => 'spells#update'
 
   get '/search'               => 'students#search', as: :search
 
