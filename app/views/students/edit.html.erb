@@ -1,0 +1,13 @@
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :house %>
+  <%= f.collection_select :house_id, House.all, :id, :name %>
+
+  <% Spell.all.each do |spell| %>
+    <%= label_tag spell.name %>
+    <%= check_box_tag "spell_ids", spell.id %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
