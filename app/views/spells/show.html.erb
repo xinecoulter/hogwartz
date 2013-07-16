@@ -1,0 +1,8 @@
+<h1><%= @spell.name %></h1>
+<ul>
+  <% @spell.students.each do |student| %>
+    <li>
+      <%= link_to student.name, student %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<h1><%= @student.name %></h1>
+<p><%= link_to @student.house.name, house_path(@student.house.name) %></p>
+
+<ul>
+<% @student.spells.each do |spell| %>
+  <li><%= link_to spell.name, spell %></li>
+<% end %>
+</ul>
+
+<%= link_to "Edit", edit_student_path %>

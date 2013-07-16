@@ -1,0 +1,11 @@
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter a name" %>
+  <%= f.label :house %>
+  <%= f.collection_select :house_id, House.all, :id, :name %>
+  <% Spell.all.each do |spell| %>
+    <%= label_tag spell.name %>
+    <%= check_box_tag "student[spell_ids][]", spell.id, @student.spells.include?(spell) %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

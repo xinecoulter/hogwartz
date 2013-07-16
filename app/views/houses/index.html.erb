@@ -1,0 +1,8 @@
+<h1>Welcome to Hogwarts</h1>
+<ul>
+<% @houses.each do |house| %>
+  <li>
+    <%= link_to(house.name, "/#{house.name}/students") %>
+  </li>
+<% end %>
+</ul>
