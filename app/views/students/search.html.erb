@@ -4,7 +4,12 @@
 </form>
 
 <%= form_tag('/search', method: 'get') do %>
+<!--
+  A form_tag renders an HTML form not backed by a model.
+  Passing nil as the second parameter because it sets the value in the form
+-->
   <%= text_field_tag(:query, nil ,:placeholder => 'Search for a student') %>
   <%= submit_tag 'Search' %>
 <% end %>
+
 <%= render 'results' %>

@@ -1,3 +1,8 @@
+<!--
+  The edit page is just like the new page, so we can use the same form_for
+  We only have to change what @student is.
+-->
+
 <%= form_for @student do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -7,12 +12,21 @@
   <%= f.collection_select :house_id, House.all, :id, :name %>
 
   <% Spell.all.each do |spell| %>
+<!--
+  Loop through all the spells. Create check boxes for each spell.
+  @student.spells.include?(spell) checks if the spell is already in the student.spells array
+-->
     <%= label_tag spell.name %>
     <%= check_box_tag "student[spell_ids][]", spell.id, @student.spells.include?(spell) %>
+<!--
+  check_box_tag isn't part of the form builder object
+  we can hard code the name attribute with student[spells_id][]
+  this ensures it's in the student hash in params
+-->
   <% end %>
-<!-- we need to make a hash that looks like this:
- -->
- <!-- student = {name: 'harry', house_id: 23, spell_ids = [16, 18]}
- "student"=>{"name"=>"", "house_id"=>"23"} -->
+
+<!--
+  Because @student refers to a student in the db this button will say "Update"
+-->
   <%= f.submit %>
 <% end %>

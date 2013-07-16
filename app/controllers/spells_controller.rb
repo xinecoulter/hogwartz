@@ -12,7 +12,9 @@ class SpellsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # Old way
+    # @spell = Spell.new(name: params[:name])
+    # New way
     @spell = Spell.new(params[:spell])
 
     if @spell.save
@@ -23,7 +25,6 @@ class SpellsController < ApplicationController
   end
 
   def update
-    binding.pry
     @spell = Spell.find(params[:id])
   end
 
