@@ -2,12 +2,17 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :house %>
+  <%= label_tag :pet_name %>
+  <%= text_field_tag :pet_name %>
   <%= f.collection_select :house_id, House.all, :id, :name %>
 
   <% Spell.all.each do |spell| %>
     <%= label_tag spell.name %>
-    <%= check_box_tag "spell_ids", spell.id %>
+    <%= check_box_tag "student[spell_ids][]", spell.id, @student.spells.include?(spell) %>
   <% end %>
-
+<!-- we need to make a hash that looks like this:
+ -->
+ <!-- student = {name: 'harry', house_id: 23, spell_ids = [16, 18]}
+ "student"=>{"name"=>"", "house_id"=>"23"} -->
   <%= f.submit %>
 <% end %>

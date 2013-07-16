@@ -12,7 +12,9 @@ class SpellsController < ApplicationController
   end
 
   def create
-    @spell = Spell.new(params[:name])
+    binding.pry
+    @spell = Spell.new(params[:spell])
+
     if @spell.save
       redirect_to @spell
     else
@@ -21,6 +23,7 @@ class SpellsController < ApplicationController
   end
 
   def update
+    binding.pry
     @spell = Spell.find(params[:id])
   end
 
