@@ -10,6 +10,20 @@ This repo includes [seedfiles][1], creating an [entity-relationship-diagram][2],
 
 ## Takes aways
 
+### Seeds
+
+You can prepopulate your database by adding code to your `seeds.rb` file.
+Just run `$ rake db:seed`
+
+If you want to seed your database on heroku run
+`$ heroku run rake db:seed`
+
+### Relationships
+
+`$ rake erd` will generate a PDF in your app directory of your models relationships.
+
+Be sure to run `$ brew install graphviz` first.
+
 ### forms and params
 
 Creating a form by hand will result in a params like the following:
