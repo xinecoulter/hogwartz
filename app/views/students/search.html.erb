@@ -3,4 +3,8 @@
   <button>Search</button>
 </form>
 
+<%= form_tag('/search', method: 'get') do %>
+  <%= text_field_tag(:query, nil ,:placeholder => 'Search for a student') %>
+  <%= submit_tag 'Search' %>
+<% end %>
 <%= render 'results' %>

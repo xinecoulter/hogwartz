@@ -1,5 +1,11 @@
 <form action="/spells" action="post">
-  <label>Name</label>
-  <input type="text" placeholder="Enter a Spell">
+  <label for="name">Name</label>
+  <input type="text" placeholder="Enter a Spell" name="name">
   <button>Create Spell</button>
 </form>
+
+<%= form_for @spell do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :placeholder => "Enter a spell" %>
+  <%= f.submit %>
+<% end %>
