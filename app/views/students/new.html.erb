@@ -1,11 +1,3 @@
-<%= form_for @student do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "Enter a name" %>
-  <%= f.label :house %>
-  <%= f.collection_select :house_id, House.all, :id, :name %>
-  <%= f.submit %>
-<% end %>
-
 <form action="/students" method="post">
   <label>Name</label>
   <input type="text" placeholder="Enter a name">

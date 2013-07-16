@@ -4,11 +4,10 @@ class SpellsController < ApplicationController
   end
 
   def new
-    @spell = Spell.new
   end
 
   def create
-    @spell = Spell.new(params[:spell])
+    @spell = Spell.new(params[:name])
     if @spell.save
       redirect_to @spell
     else

@@ -1,9 +1,3 @@
-<%= form_for @spell do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "Enter a Spell" %>
-  <%= f.submit %>
-<% end %>
-
 <form action="/spells" action="post">
   <label>Name</label>
   <input type="text" placeholder="Enter a Spell">

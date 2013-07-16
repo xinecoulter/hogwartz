@@ -7,11 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Home", root_path %>
-<a href="/students/new">New Student</a>
-<a href="/spells/new">New Spell</a>
-<%= link_to 'Search Students', search_path %>
-<%= yield %>
+  <nav>
+    <%= link_to "Home", root_path %>
+    <%= link_to "New Student", new_student_path %>
+    <%= link_to "New Spell", new_spell_path %>
+    <%= link_to 'Search Students', search_path %>
+  </nav>
+
+  <%= yield %>
 
 </body>
 </html>

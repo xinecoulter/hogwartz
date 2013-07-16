@@ -8,12 +8,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(params[:student])
-    if @student.save
-      redirect_to @student
-    else
-      render :new
-    end
   end
 
   def edit
@@ -22,8 +16,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    binding.pry
-    @student.update_attributes(params[:student])
+    @student.update_attributes(name: params[:name])
     redirect_to @student
   end
 end
