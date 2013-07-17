@@ -1,3 +1,7 @@
+<!--
+  Hand coded form
+-->
+
 <form action="/students" method="post">
   <label>Name</label>
   <input type="text" placeholder="Enter a name" name="name">
@@ -11,12 +15,29 @@
   <button>Create Student</button>
 </form>
 
+<!--
+  Rails generated form
+-->
+
 <%= form_for @student do |f| %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :house %>
   <%= label_tag :pet_name %>
-  <%= text_field_tag :pet_name %>
   <%= f.collection_select :house_id, House.all, :id, :name %>
+
+<!--
+  Collection select renders the drop down. The name attribute will be house_id
+  We pass in House.all as the collection of Objects
+  The option values will be each house.id and the text will be house.name
+-->
+  <%= text_field_tag :pet_name %>
+<!--
+  You can use a regular text_field_tag in a form_for.
+  It just won't be part of the student hash in params.
+  params = {id: nil, action: 'create', controller: 'student', student: { name: 'Harry', house_id: 23 }, pet: 'Hedwig'}
+-->
+
   <%= f.submit %>
 <% end %>

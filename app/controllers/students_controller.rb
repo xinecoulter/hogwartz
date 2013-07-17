@@ -8,9 +8,14 @@ class StudentsController < ApplicationController
   end
 
   def create
-    student = Student.new(params[:student])
-    student.save
-    redirect_to @student
+    # Old way
+    # Student.new(name: params[:name])
+    @student = Student.new(params[:student])
+    if @student.save
+      redirect_to @student
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,7 +24,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    raise
+    # To call an error I can just write raise
     @student.update_attributes(params[:student])
     redirect_to @student
   end

@@ -4,11 +4,8 @@
 </form>
 
 <%= form_tag('/search', method: 'get') do %>
-<<<<<<< HEAD
   <%= text_field_tag(:query, nil, :placeholder => 'Search for a student') %>
-=======
-  <%= text_field_tag(:query, nil ,:placeholder => 'Search for a student') %>
->>>>>>> upstream/master
   <%= submit_tag 'Search' %>
 <% end %>
+
 <%= render 'results' %>
